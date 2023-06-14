@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .popup {
+          width: 600px;
+          height: 400px;
+          background-color: #fff;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          display: none;
+        }
+        .popup-content {
+          padding: 20px;
+          text-align: center;
+        }
+      </style>
+</head>
+<body>
+    <table id="resturantent_detail" border="2">
+
+    </table>
+
+    <div id="popupContainer" class="popup">
+        <div class="popup-content">
+          <h2 id="rname"></h2>
+          <p id="description"></p>
+          <input type="hidden" name="resturantent_id" id="hidden">
+          <textarea name="feedback" id="feedback" cols="30" rows="3"></textarea>
+          <button id="closeBtn">Close</button>
+          <button id="FeedBtn" onclick="addFeedback(event)">feedback</button>
+          <ul id="userfeedBack"></ul>
+        </div>
+    </div>
+</body>
+<script src="index.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</html>

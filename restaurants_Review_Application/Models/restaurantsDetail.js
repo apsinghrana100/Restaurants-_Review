@@ -10,7 +10,11 @@ const restaurant =  Database_Connection.define('restaurantDetailTbl',{
     },
     restaurant_Name: sequelize.STRING,
     address : sequelize.STRING,
-    total_review : sequelize.INTEGER
+    total_review :{
+        type : sequelize.INTEGER,
+        defaultValue : 0
+    },
+    description : sequelize.TEXT 
 });
 
 module.exports = restaurant;

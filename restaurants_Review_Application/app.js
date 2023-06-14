@@ -10,12 +10,27 @@ app.use(cors());
 app.use(bodyperser.urlencoded({extended:true}));
 app.use(bodyperser.json());
 
-const AddDetailRouter = require('./router/AdminRoute')
+const AdminRouter = require('./router/AdminRoute')
+const UserRouter = require('./router/UserRoute');
 
-app.use('/restaurant/',AddDetailRouter);
+
+//
+const usermodule =require('./Models/usertable');
+const feedbackmodule =require('./Models/feedBackModel');
+const restarunetmodule =require('./Models/restaurantsDetail');
 
 
-sequelize.sync({force : true})
+app.use('/restaurant/',AdminRouter);
+app.use('/restaurant/',UserRouter);
+
+
+usermodule.hasMany(feedbackmodule); // user HasMany feedback
+restarunetmodule.hasMany(feedbackmodule); // restarunent hasMant feedback
+
+
+
+
+sequelize.sync({force : false})
 .then(response=>{
     app.listen(4000);
     console.log("connection successfully");

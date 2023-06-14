@@ -8,13 +8,15 @@
 // });
 const restaurant_Name = document.getElementById('Restaurant_Name');
 const restaurant_address = document.getElementById('Restaurant_Address');
+const Restaurant_description = document.getElementById('Restaurant_description');
 
 async function AddDetail(event){
     
     console.log(restaurant_Name.value)
     restaurant_detail = {
         restaurant_Name : restaurant_Name.value,
-        restaurant_address : restaurant_address.value
+        restaurant_address : restaurant_address.value,
+        Restaurant_description : Restaurant_description.value
     }
 
         axios.post("//localhost:4000/restaurant/addDetail",restaurant_detail)
